@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Главная страница</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Подключаем шрифт Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 60px;
+        }
+
+        #sidebar, #content {
+            padding: 20px;
+        }
+
+        #sidebar {
+            z-index: 0; /* Уменьшаем z-index для бокового меню */
+        }
+
+
+        #content {
+            padding: 20px;
+            margin-bottom: -60px; /* Выберите подходящее значение отрицательного отступа */
+        }
+
+
+        #content {
+            margin-bottom: -60px; /* Выберите подходящее значение отрицательного отступа */
+        }
+
+        #sidebar {
+            background-color: #343a40;
+            color: #fff;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        #sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .tile-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tile {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-right: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .tile:hover {
+            background-color: #f8f9fa;
+        }
+
+        .tile h2 {
+            margin-bottom: 10px;
+        }
+
+        .tile form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tile .form-group {
+            margin-bottom: 15px;
+        }
+
+        .tile .btn-primary {
+            width: 100%;
+        }
+
+        #navbarNav {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        #quickActionBtn {
+            margin-left: 20px;
+        }
+
+        .quick-action-modal {
+            margin-top: 60px;
+        }
+
+        .quick-action-modal .modal-dialog {
+            width: 250px;
+        }
+
+        .quick-action-modal .modal-content {
+            padding: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .footer-logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .footer-text {
+            margin-bottom: 0;
+        }
+
+        .social-logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .footer-logo-big img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .footer-separator {
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        footer{
+            margin-left: -24px;
+            text-align: left;
+        }
+
+        .modal-h{
+            margin-top: 40px;
+            text-align: center;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Панель навигации -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="/css/images/itlogo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+        IT-поддержка
+    </a>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <a class="navbar-brand" href="#">
+            <img src="/css/images/user.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+        </a>
+        <button class="btn btn-light" id="quickActionBtn" data-toggle="modal" data-target="#quickActionModal">
+            <img src="/css/images/more.png" width="30" height="30" class="d-inline-block align-top">
+        </button>
+    </div>
+</nav>
+
+<!-- Модальное окно для быстродействия -->
+<div class="modal fade" id="quickActionModal" tabindex="-1" role="dialog" aria-labelledby="quickActionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="quickActionModalLabel">Каталог действий</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h7 class="modal-h">Действия</h7>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Подать заявку</a></li>
+                    <li class="list-group-item"><a href="#">Обучающий контент</a></li>
+                </ul>
+
+                <h7 class="modal-h">История</h7>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Мои заявки</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Боковое меню -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+            <div class="sidebar-sticky">
+                <h5>Каталог</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="/css/images/support.png" alt="Application Icon" width="20" height="20">
+                            <span>Подать заявку</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="/css/images/support.png" alt="Content Icon" width="20" height="20">
+                            <span>Обучение</span>
+                        </a>
+                    </li>
+                </ul>
+                <h5>История</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="/css/images/support.png" alt="Application Icon" width="20" height="20">
+                            <span>Мои заявки</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основное содержимое страницы -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="content">
+            <div class="tile-container">
+                <!-- Плитка "Подать заявку" -->
+                <div class="tile">
+                    <form>
+                        <h2>Подать заявку</h2>
+                        <div class="form-group">
+                            <label for="category">Категория:</label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="1">Неисправность в работе техники</option>
+                                <option value="2">Неисправность работы ПО</option>
+                                <option value="3">Консультирование/Диагностика</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание проблемы:</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </form>
+                </div>
+                <!-- Плитка "Обучающий контент" -->
+                <div class="tile">
+                    <h2>Обучающий контент</h2>
+                    <div class="tile-container">
+                        <!-- Подплитка "Офисные программы" -->
+                        <div class="tile">
+                            <a href="/registration">Офисные программы</a>
+                            <!-- Дополнительное содержимое для подплитки "Офисные программы" -->
+                        </div>
+                        <!-- Подплитка "Советы по обращению в технике" -->
+                        <div class="tile">
+                            <a href="/registration">Советы по обращению с техникой</a>
+                            <!-- Дополнительное содержимое для подплитки "Советы по обращению в технике" -->
+                        </div>
+                        <!-- Подплитка "Больше" -->
+                        <div class="tile">
+                            <a href="/registration">Больше</a>
+                            <!-- Дополнительное содержимое для подплитки "Больше" -->
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="footer-logo-big">
+                        <img src="/css/images/itlogo.svg" alt="IT-поддержка">
+                        <a href="/registration">Как подать заявку?</a>
+                    </div>
+                    <hr class="footer-separator">
+                    <p class="footer-text">© 2023 «IT-поддержка»</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Подключаем Bootstrap JS (необходим для работы интерактивных компонентов) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
